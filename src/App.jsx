@@ -25,8 +25,8 @@ function App() {
 
   return (
     <div className='grid'>
-      <div className='grid mb-5 m-auto'>
-        <h1 className='m-auto'>Cantidad de ramos</h1>
+      <section className='grid mb-5 m-auto'>
+        <h1 className='m-auto'>Cantidad de notas</h1>
         <div className='m-auto'>
           {grades}
         </div>
@@ -34,18 +34,37 @@ function App() {
           <button className='ml-4' onClick={() => discount()}>descontar</button>
           <button className='ml-4' onClick={() => add()}>agregar</button>
         </div>
-      </div>
-      <div className='flex'>
-        {
-          Array.from({ length: grades }).map(
-            (_, index) => (
-              <Nota key={index} onGradeChange={handleGradeChange} />
+        <div className='flex'>
+          <label htmlFor="simple" className='mx-4'>
+            Simple
+            <input type="checkbox" name="simple" id="simple" />
+          </label>
+          <label htmlFor="ponderado" className='mx-4'>
+            Ponderado
+            <input type="checkbox" name="ponderado" id="ponderado" />
+          </label>
+        </div>
+      </section>
+      <section>
+        <div className='flex flex-wrap'>
+          {
+            Array.from({ length: grades }).map(
+              (_, index) => (
+                <Nota key={index} onGradeChange={handleGradeChange} />
+              )
             )
-          )
-        }
-      </div>
-      <button onClick={handleCalculate}>Calcular</button>
-      suma : {totalGrade.toFixed(1)} - total : {simple}
+          }
+        </div>
+        <button onClick={handleCalculate}>Calcular</button>
+      </section>
+      <section>
+        <div>
+          Nota final (promedio simple) : {simple}
+        </div>
+        <div>
+          Nota final (promedio ponderado) : {simple}
+        </div>
+      </section>
     </div>
   )
 }

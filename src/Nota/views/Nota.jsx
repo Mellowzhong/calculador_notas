@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from 'prop-types';
 
 export default function Nota({ onGradeChange }) {
-    const [grade, setGrade] = useState(1);
+    const [grade, setGrade] = useState(4);
 
 
     const handleChange = (event) => {
@@ -19,7 +19,9 @@ export default function Nota({ onGradeChange }) {
         <div>
             <form>
                 <label htmlFor="nota" className="grid">
-                    Nota
+                    <h2 className="m-auto">
+                        Nota
+                    </h2>
                     <input
                         className="rounded-md border-2"
                         type="range"
@@ -33,8 +35,9 @@ export default function Nota({ onGradeChange }) {
                         onMouseUp={handeRelease}
                         onTouchEnd={handeRelease}
                     />
-                    value : {grade.toFixed(1)}
-                    <button type="submit">Confirmar</button>
+                    <div className="m-auto">
+                        {grade.toFixed(1)}
+                    </div>
                 </label>
             </form>
         </div>
